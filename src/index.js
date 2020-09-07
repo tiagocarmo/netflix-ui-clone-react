@@ -9,7 +9,7 @@ import NotFound from './components/pages/NotFound';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename='/'>
+      <BrowserRouter basename='/netflix-ui-clone-react'>
         <Switch>
           <Route path="/" exact={true} component={Browser} />
           <Route path='*' component={NotFound} />
