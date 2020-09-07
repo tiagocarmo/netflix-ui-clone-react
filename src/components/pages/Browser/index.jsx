@@ -15,8 +15,9 @@ const Browser = () => {
   useEffect(() => {
     const fetchNetflixOriginals = async () => {
       let responseOriginals = await TmdbApiClient.netflixOriginals();
-      const responseFeatured = await TmdbApiClient.moreInfoSerie(responseOriginals[0].id);
-      setOriginals(responseOriginals.shift());
+      //const responseFeatured = await TmdbApiClient.moreInfoSerie(responseOriginals[0].id);
+      const responseFeatured = TmdbApiClient.moreInfoSerie();
+      setOriginals(responseOriginals);
       setOriginalFeatured(responseFeatured);
     };
     fetchNetflixOriginals();

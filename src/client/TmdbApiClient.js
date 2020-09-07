@@ -47,7 +47,7 @@ class TmdbApiClient {
     return shuffle(response.data.results);
   };
 
-  moreInfoSerie = async () => {// id
+  moreInfoSerie = () => {// id
     //const httpClient = this._getHttpClient();
     //const response = await httpClient.get(`/tv/${id}?${config}`);
     //return response.data;
