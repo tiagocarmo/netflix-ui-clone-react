@@ -1,0 +1,31 @@
+# TODO:
+
+› Criação página "browse"
+ ✓ Header
+ ✓ Destaque
+ ✓ Listas
+ → Item em destaque entre Listas
+ → Footer
+
+› Criação página "login"
+ → Form de login
+ → Escolha de perfil
+
+› Criação página "watch"
+ → Visualização do conteúdo selecionado
+
+###
+
+# FIXME:
+
+› Aplicar as cores do theme no header
+› Nada responsivo ainda (precisa trabalhar bastante aqui)
+› Concluir a documentação das chamadas na API REST do TMDB
+› Os componentes precisam de testes!!!
+
+###
+
+# LEGEND:
+
+Task: → ›
+Done: ✔ ✓
