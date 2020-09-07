@@ -5,6 +5,10 @@ export const List = styled.ul`
   margin: 0;
   list-style: none;
   display: inline-block;
+  @media(max-width: 992px) {
+    display: block;
+    padding-bottom: 16px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -18,6 +22,12 @@ export const ListItem = styled.li`
     transition: opacity .1s;
     &:hover {
       opacity: 0.8;
+    }
+  }
+  @media(max-width: 992px) {
+    padding: 12px 24px 0 0;
+    a {
+      font-size: 14px;
     }
   }
 `;

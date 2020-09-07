@@ -1,5 +1,6 @@
 import axios from 'axios';
 import shuffle from '../utils/shuffle';
+import supernatural from './supernatural.json';
 
 const API_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '4cb6df1ef97d71ce804aa322eafbcd0d';
@@ -40,22 +41,17 @@ class TmdbApiClient {
     return shuffle(response.data.results);
   };
 
-  moreInfoMovie = async (id) => {
-    const httpClient = this._getHttpClient();
-    const response = await httpClient.get(`/movie/${id}?${config}`);
-    return response.data;
-  };
-
   series = async () => {
     const httpClient = this._getHttpClient();
     const response = await httpClient.get(`/discover/tv?${config}`);
     return shuffle(response.data.results);
   };
 
-  moreInfoSerie = async (id) => {
-    const httpClient = this._getHttpClient();
-    const response = await httpClient.get(`/tv/${id}?${config}`);
-    return response.data;
+  moreInfoSerie = async () => {// id
+    //const httpClient = this._getHttpClient();
+    //const response = await httpClient.get(`/tv/${id}?${config}`);
+    //return response.data;
+    return supernatural;
   };
 }
 

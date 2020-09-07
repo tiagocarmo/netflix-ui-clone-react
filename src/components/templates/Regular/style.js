@@ -10,4 +10,7 @@ export const Background = styled.div`
 
 export const Content = styled.div`
   padding: 0 60px 100px;
+  @media(max-width: 992px) {
+    padding: 0 24px 40px;
+  }
 `;
