@@ -2,9 +2,14 @@ import axios from 'axios';
 import shuffle from '../utils/shuffle';
 import supernatural from './supernatural.json';
 
-const API_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '4cb6df1ef97d71ce804aa322eafbcd0d';
 const NETWORK_ID = 213;
+
+const API_URL = 'https://api.themoviedb.org/3';
+
+// Para publicar no github, favor usar a const abaixo
+// const API_URL = 'https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3';
+// Assim evita o erro de mixing content (falta do HTTPS na API)
 
 const config = `with_network=${NETWORK_ID}&language=pt-BR&api_key=${API_KEY}`;
 
@@ -51,7 +56,13 @@ class TmdbApiClient {
     //const httpClient = this._getHttpClient();
     //const response = await httpClient.get(`/tv/${id}?${config}`);
     //return response.data;
-    return supernatural;
+    //return JSON.stringify(supernatural);
+    return {
+      name: supernatural.name,
+      overview: supernatural.overview,
+      backdrop_path: supernatural.backdrop_path,
+      poster_path: supernatural.poster_path
+    };
   };
 }
 

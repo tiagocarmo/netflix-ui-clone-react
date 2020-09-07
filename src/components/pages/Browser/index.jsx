@@ -5,20 +5,24 @@ import Featured from '../../molecules/Featured';
 import List from '../../molecules/List';
 
 const Browser = () => {
-  const [originals, setOriginals] = useState([]);
-  const [originalFeatured, setOriginalFeatured] = useState([]);
-  const [trending, setTrending] = useState([]);
-  const [toprated, setTopRated] = useState([]);
-  const [movies, setMovies] = useState([]);
-  const [series, setSeries] = useState([]);
+  const [originals, setOriginals] = useState(null);
+  const [originalFeatured, setOriginalFeatured] = useState(null);
+  const [trending, setTrending] = useState(null);
+  const [toprated, setTopRated] = useState(null);
+  const [movies, setMovies] = useState(null);
+  const [series, setSeries] = useState(null);
 
   useEffect(() => {
     const fetchNetflixOriginals = async () => {
       let responseOriginals = await TmdbApiClient.netflixOriginals();
-      //const responseFeatured = await TmdbApiClient.moreInfoSerie(responseOriginals[0].id);
       const responseFeatured = TmdbApiClient.moreInfoSerie();
       setOriginals(responseOriginals);
       setOriginalFeatured(responseFeatured);
+
+      // Solução original, com o billboard aleatorio
+      //const responseFeatured = await TmdbApiClient.moreInfoSerie(responseOriginals[0].id);
+      //setOriginals(responseOriginals.shift());
+      //setOriginalFeatured(responseFeatured);
     };
     fetchNetflixOriginals();
 
@@ -49,13 +53,13 @@ const Browser = () => {
 
   return (
     <>
-      <Featured item={originalFeatured} />
+      { originalFeatured && <Featured item={originalFeatured} /> }
       <Template>
-        <List name='Originais Netflix' list={originals} />
-        <List name='Tendência na Semana' list={trending} />
-        <List name='Melhores notas no IMDB' list={toprated} />
-        <List name='Filmes' list={movies} />
-        <List name='Séries' list={series} />
+        { originals && <List name='Originais Netflix' list={originals} /> }
+        { trending && <List name='Tendência na Semana' list={trending} /> }
+        { toprated && <List name='Melhores notas no IMDB' list={toprated} /> }
+        { movies && <List name='Filmes' list={movies} /> }
+        { series && <List name='Séries' list={series} /> }
       </Template>
     </>
   );

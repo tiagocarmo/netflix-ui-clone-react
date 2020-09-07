@@ -5,7 +5,7 @@ export const Background = styled.div`
   height: 80vh;
   background: linear-gradient(to top, ${props => props.theme.palette.background} 5%, transparent),
     linear-gradient(to right, ${props => props.theme.palette.background} 20%, transparent 100%),
-    ${props => props.theme.palette.background} url('https://image.tmdb.org/t/p/original${props => props.image}') left top no-repeat;
+    ${props => props.theme.palette.background} url('https://image.tmdb.org/t/p/original${props => props.backdrop_path}') left top no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ export const Background = styled.div`
     display: block;
     background: linear-gradient(to top, ${props => props.theme.palette.background} 5%, transparent),
       linear-gradient(to right, ${props => props.theme.palette.background} 20%, transparent 100%),
-      ${props => props.theme.palette.background} url('https://image.tmdb.org/t/p/original${props => props.image}') center center no-repeat;
+      ${props => props.theme.palette.background} url('https://image.tmdb.org/t/p/original${props => props.backdrop_path}') center center no-repeat;
       background-size: cover;
   }
 `;

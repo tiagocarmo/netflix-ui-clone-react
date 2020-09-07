@@ -7,18 +7,22 @@ const IconInfoSVG = () => (<svg viewBox='0 0 24 24'><path d='M22 12c0 5.523-4.47
 const Featured = ({ item }) => {
   const description = (item && item.overview && item.overview.length > 199) ? `${item.overview.substr(0, 199)}...` : item.overview;
   return (
-    <section>
-      <S.Background image={item.backdrop_path}>
-        <S.Container>
-          <S.Title>{item.name}</S.Title>
-          <S.Description>{description}</S.Description>
-          <div>
-            <S.Play> <IconPlaySVG /> Assistir</S.Play>
-            <S.MoreInfo> <IconInfoSVG /> Mais informações</S.MoreInfo>
-          </div>
-        </S.Container>
-      </S.Background>
-    </section>
+    <>
+      {item && item.backdrop_path &&
+        <section>
+          <S.Background backdrop_path={item.backdrop_path}>
+            <S.Container>
+              <S.Title>{item.name}</S.Title>
+              <S.Description>{description}</S.Description>
+              <div>
+                <S.Play> <IconPlaySVG /> Assistir</S.Play>
+                <S.MoreInfo> <IconInfoSVG /> Mais informações</S.MoreInfo>
+              </div>
+            </S.Container>
+          </S.Background>
+        </section>
+      }
+    </>
   );
 };
 
